@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- PAGE settings -->
+    <link
+      rel="icon"
+      href="https://templates.pingendo.com/assets/Pingendo_favicon.ico"
+    />
+    <title>Benix</title>
+    <meta
+      name="description"
+      content="Free Bootstrap 4 Pingendo Neon template made for app and softwares."
+    />
+    <meta
+      name="keywords"
+      content="Pingendo app neon free template bootstrap 4"
+    />
+    <!-- CSS dependencies -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="/static/css/neon.css" />
+    <!-- JavaScript dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Script: Smooth scrolling between anchors in the same page -->
+    <script src="/static/js/smooth-scroll.js"></script>
+    <!-- Script: Make my navbar transparent when the document is scrolled to top -->
+    <script src="/static/js/navbar-ontop.js"></script>
+    <!-- Script: Animated entrance -->
+    <script src="/static/js/animate-in.js"></script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav
+      w3-include-html="/navbar"
+      class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"
+    ></nav>
+    <!-- Cover -->
+    <div
+      class="section-fade-out pt-5"
+      style="	background-image: url(/static/asset/star.png);	background-position: bottom;	background-size: 100%;	background-repeat: repeat;"
+    >
+      <div class="container mt-5 pt-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="display-1">This is home page</h1>
+            <br />{{ message }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Content -->
+    <div
+      class="py-5 text-center"
+      style="	background-image: url('/static/asset/hang_star.png');	background-size: auto;	background-position: topleft;	background-repeat: no-repeat;"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="bg-white p-5 mx-auto col-md-8 col-10">
+            <h3 class="display-3 text-warning">Github</h3>
+            <p class="mb-3 lead text-dark">Github link</p>
+            <a href="https://github.com/BSxLeung/jour4046"
+              ><p class="mb-4 text-dark">
+                https://github.com/BSxLeung/jour4046
+              </p></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-3 text-center bg-info">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h1>Assignment</h1>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-4 p-4 border border-light">
+            <div class="card-body p-4">
+              <h2><b>Three</b></h2>
+              <p style="text-align:left">
+                1. Pick a web page(s) and scape it using Parsehub.<br /><br /><br />&nbsp;2.
+                Send me the link to the original web page(s).&nbsp;<br /><br /><br />3.
+                Send me the .csv file. (3 weeks) (edited)&nbsp;
+              </p>
+              <p class="mb-0 lead text-warning"><a href="/assignment_three">Check</a></p>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 p-4 border-top border-bottom border-light">
+            <div class="card-body p-4">
+              <h2><b>Four</b></h2>
+              <p style="text-align:left">
+                1. Pick a dataset that needs to be cleaned with OpenRefine.<br /><br /><br />&nbsp;2.
+                Import it and clean it up.&nbsp;<br /><br /><br />3. Send me the
+                project file so I can&nbsp;<br />review your steps.&nbsp;
+              </p>
+               <p class="mb-0 lead text-warning"><a href="/assignment_four">Check</a></p>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 p-4 border border-light">
+            <div class="card-body p-4">
+              <h2><b>Five</b></h2>
+              <p style="text-align:left">
+                1. Create a bar chart using data wrapper with pre-existing or
+                dataset&nbsp;<br /><br /><br />2. Create a map using data
+                wrapper with pre-existing or new dataset<br /><br /><br />&nbsp;3.
+                Build up airtable tables using roll-up field to produce summary
+                or aggregate data to be placed in data wrapper&nbsp;<br /><br /><br />4.
+                For map, use airtable with lat and lng columns to hold the geo
+                data co-ordinates (export the csv into data wrapper)
+              </p>
+            </div>
+            <p class="mb-0 lead text-warning">Check</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article style section -->
+    <!-- Features -->
+    <!-- Features -->
+    <!-- Carousel reviews -->
+    <!-- Call to action -->
+    <!-- Footer -->
+    <div w3-include-html="/footer"></div>
+    <script>
+      w3.includeHTML();
+    </script>
+  </body>
+</html>

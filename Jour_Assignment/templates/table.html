@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- PAGE settings -->
+    <link
+      rel="icon"
+      href="https://templates.pingendo.com/assets/Pingendo_favicon.ico"
+    />
+    <title>Benix</title>
+    <meta
+      name="description"
+      content="Free Bootstrap 4 Pingendo Neon template made for app and softwares."
+    />
+    <meta
+      name="keywords"
+      content="Pingendo app neon free template bootstrap 4"
+    />
+    <!-- CSS dependencies -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="/static/css/neon.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <!-- Script: Make my navbar transparent when the document is scrolled to top -->
+    <script src="/static/js/navbar-ontop.js"></script>
+    <!-- Script: Animated entrance -->
+    <script src="/static/js/animate-in.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      w3-include-html="/navbar"
+      class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"
+    ></nav>
+    <!-- Cover -->
+    <div
+      class="section-fade-out pt-5"
+      style="background-image: url(/static/asset/star.png); background-position: center bottom; background-size: 100%; background-repeat: repeat;"
+    >
+      <div class="container mt-5 pt-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="display-1">This is user table</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Content -->
+    <div class="py-5">
+      <div class="container button-container" id="button-container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="btn-group">
+              <a href="#" class="btn btn-success" id="btn_update">Update</a>
+              <a href="#" class="btn btn-danger" id="btn_delete">Delete</a>
+            </div>
+            <div class="row"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="height:10px"></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-responsive">
+              <table class="table dataTable" id="myTable">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Student ID</th>
+                    <th>Date of Birth</th>
+                    <th>Record</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% set count = 1 %} {% for row in entries %}
+                  <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ row["fname"] }}</td>
+                    <td>{{ row["lname"] }}</td>
+                    <td>{{ row["student_id"] }}</td>
+                    <td>{{ row["date_of_birth"] }}</td>
+                    <td>{{ row["record_id"] }}</td>
+                    {% set count = count + 1 %}
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- update information modal-->
+    <div
+      style="background-color:rbga(255,255,255,255,0.2); left: 0; top: 50%; width:100%; height:100%;position: relative; display: none;"
+    >
+      <div class="modal update_modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-dark">Update Information</h5>
+            </div>
+            <form class="text-left" method="post" action="/updateuser">
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="upd_fname" class="text-dark">First Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="fname"
+                    id="upd_fname"
+                    placeholder="Johann W. Goethe"
+                    required
+                    autofocus
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="upd_lname" class="text-dark">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="lname"
+                    id="upd_lname"
+                    placeholder="Chan"
+                    required
+                    autofocus
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="upd_student_id" class="text-dark"
+                    >Student ID</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="student_id"
+                    id="upd_student_id"
+                    placeholder="18000000"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="upd_date_of_birth" class="text-dark"
+                    >Birthday</label
+                  >
+                  <input
+                    type="date"
+                    name="date_of_birth"
+                    id="upd_date_of_birth"
+                    class="form-control"
+                  />
+                </div>
+                <input
+                  type="hidden"
+                  class="form-control"
+                  name="record_id"
+                  id="upd_record_id"
+                />
+
+                <!-- <div class="form-row"> -->
+                <!-- <div class="form-group col-md-6">
+                    <label for="form19" class="text-dark">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="form19"
+                      placeholder="••••"
+                      style="opacity: 0.5;"
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="form20" class="text-dark"
+                      >Confirm Password</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="form20"
+                      placeholder="••••"
+                    />
+                  </div> -->
+                <!-- </div> -->
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="submit"
+                  id="btn_save_update"
+                  class="btn btn-success"
+                >
+                  Save changes
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  id="btn_close_update"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--delete information modal-->
+    <div
+      style="background-color:rbga(255,255,255,255,0.2); left: 0; top: 50%; width:100%; height:100%;position: relative; display:none;"
+    >
+      <div class="modal delete_modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-dark">Delete User</h5>
+            </div>
+            <p class="text-dark col-md-12 ">Confirm delete?</p>
+            <form class="text-left" method="post" action="/deleteuser">
+              <div class="modal-body" style="display: none">
+                <div class="form-group">
+                  <input
+                    type="hidden"
+                    class="form-control"
+                    name="record_id"
+                    id="del_record_id"
+                  />
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="submit"
+                    id="btn_save_delete"
+                    class="btn btn-danger"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    id="btn_close_delete"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Article style section -->
+    <!-- Features -->
+    <!-- Features -->
+    <!-- Carousel reviews -->
+    <!-- Call to action -->
+    <!-- Footer -->
+    <div w3-include-html="/footer"></div>
+    <!-- JavaScript dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script>
+      w3.includeHTML();
+    </script>
+    <!-- Script: Smooth scrolling between anchors in the same page -->
+    <script src="/static/js/smooth-scroll.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#button-container").hide();
+
+        //link Data Table
+        $("#myTable").dataTable({
+          select: true,
+          dom: "t"
+        });
+
+        //get selected row
+        $("#myTable").on("select.dt", function(e, dt, type, indexes) {
+          recEntry = dt.row({ selected: true }).data();
+
+          if ($("#button-container").css("display") === "none") {
+            $("#button-container").show(2000);
+            openForm(recEntry, "update");
+          }
+        });
+
+        $("#btn_update").click(function(evt) {
+          $(".update_modal").show(2000);
+        });
+
+        $("#btn_delete").click(function(evt) {
+          $(".delete_modal").show(2000);
+        });
+
+        $("body").click(function(evt) {
+          if (evt.target.id == "myTable") return;
+
+          if ($(evt.target).closest("#myTable").length) return;
+
+          $("#button-container").hide(2000);
+        });
+
+        $("#btn_close_update").click(function(evt) {
+          $("tr").removeClass("selected");
+          $(".update_modal").hide(2000);
+        });
+
+        $("#btn_close_delete").click(function(evt) {
+          $("tr").removeClass("selected");
+          $(".delete_modal").hide(2000);
+        });
+      });
+
+      function openForm(recEntry, whichForm) {
+        if (whichForm == "update") {
+          document.getElementById("upd_fname").value = recEntry[1];
+          document.getElementById("upd_lname").value = recEntry[2];
+          document.getElementById("upd_student_id").value = recEntry[3];
+          document.getElementById("upd_date_of_birth").value = recEntry[4];
+          document.getElementById("upd_record_id").value = recEntry[5];
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+.topic {
+  color: red;
+}
+table.dataTable tbody tr.selected {
+  color: black !important;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+#mapid {
+  height: 180px;
+}
