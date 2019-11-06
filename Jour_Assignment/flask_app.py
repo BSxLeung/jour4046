@@ -128,6 +128,12 @@ def assignment_three():
 def assignment_four():
     return render_template('assignment_four.html')
 
+# assignment_five
+@app.route("/assignment_five", methods=['GET'])
+# @login_required
+def assignment_five():
+    return render_template('assignment_five.html')
+
 
 # footer
 @app.route("/footer", methods=['GET'])

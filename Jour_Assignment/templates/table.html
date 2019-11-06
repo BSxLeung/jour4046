@@ -102,9 +102,10 @@
 
     <!-- update information modal-->
     <div
+      class="modal_container"
       style="background-color:rbga(255,255,255,255,0.2); left: 0; top: 50%; width:100%; height:100%;position: relative; display: none;"
     >
-      <div class="modal update_modal">
+      <div class="modal update_modal" style="display: none;">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -216,18 +217,20 @@
 
     <!--delete information modal-->
     <div
+      class="modal_container"
       style="background-color:rbga(255,255,255,255,0.2); left: 0; top: 50%; width:100%; height:100%;position: relative; display:none;"
     >
-      <div class="modal delete_modal">
+      <div class="modal delete_modal" style="display:none;">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title text-dark">Delete User</h5>
             </div>
-            <p class="text-dark col-md-12 ">Confirm delete?</p>
+
             <form class="text-left" method="post" action="/deleteuser">
-              <div class="modal-body" style="display: none">
+              <div class="modal-body">
                 <div class="form-group">
+                  <p class="text-dark col-md-12 ">Confirm delete?</p>
                   <input
                     type="hidden"
                     class="form-control"
@@ -235,23 +238,23 @@
                     id="del_record_id"
                   />
                 </div>
-                <div class="modal-footer">
-                  <button
-                    type="submit"
-                    id="btn_save_delete"
-                    class="btn btn-danger"
-                  >
-                    Delete
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-success"
-                    id="btn_close_delete"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="submit"
+                  id="btn_save_delete"
+                  class="btn btn-danger"
+                >
+                  Delete
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  id="btn_close_delete"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
               </div>
             </form>
           </div>
@@ -303,16 +306,19 @@
 
           if ($("#button-container").css("display") === "none") {
             $("#button-container").show(2000);
-            openForm(recEntry, "update");
           }
         });
 
         $("#btn_update").click(function(evt) {
+          $(".modal_container").css("display", "");
           $(".update_modal").show(2000);
+          openForm(recEntry, "update");
         });
 
         $("#btn_delete").click(function(evt) {
+          $(".modal_container").css("display", "");
           $(".delete_modal").show(2000);
+          openForm(recEntry, "delete");
         });
 
         $("body").click(function(evt) {
@@ -325,11 +331,13 @@
 
         $("#btn_close_update").click(function(evt) {
           $("tr").removeClass("selected");
+          $(".modal_container").css("display", "none");
           $(".update_modal").hide(2000);
         });
 
         $("#btn_close_delete").click(function(evt) {
           $("tr").removeClass("selected");
+          $(".modal_container").css("display", "none");
           $(".delete_modal").hide(2000);
         });
       });
@@ -341,6 +349,8 @@
           document.getElementById("upd_student_id").value = recEntry[3];
           document.getElementById("upd_date_of_birth").value = recEntry[4];
           document.getElementById("upd_record_id").value = recEntry[5];
+        }else if (whichForm == "delete") {
+          document.getElementById("del_record_id").value = recEntry[5];
         }
       }
     </script>
